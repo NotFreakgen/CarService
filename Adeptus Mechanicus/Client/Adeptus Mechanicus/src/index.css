@@ -1,0 +1,47 @@
+.CarsList{
+   font-family: Arial, sans-serif;
+   text-align: center;
+   margin-top: 100px;
+}
+h1{
+  font-size: 4rem;
+}
+button{
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5 ease;
+}
+.buy-button{
+  background-color: hsl(120, 72%, 55%)
+}
+.buy-button:hover{
+  background-color: hsl(117, 73%, 43%)
+}
+ol{
+  padding: 0;
+}
+li{
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: hsl(0, 0%, 100%);
+  margin-bottom: 10px;
+  border: 3px solid hsl(0, 0%, 85%);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.text{
+  flex: 1
+}
+.carColumn{
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  flex-direction: column;
+}

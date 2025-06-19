@@ -1,0 +1,43 @@
+networks:
+  internalnet:
+    driver: bridge
+
+services:
+  database:
+    build: ./Database
+    image: freakgen/car_service_database
+    container_name: database_c
+    ports:
+      - '3307:3306'
+    expose:
+      - 3307
+    environment:
+      MYSQL_DATABASE: cars
+    networks:
+      - internalnet
+
+  server:
+    build: ./Server
+    image: freakgen/car_service_server
+    container_name: server_c
+    ports:
+      - '8080:8080'
+    depends_on:
+      - 'database'     
+    environment:
+      MYSQL_HOST: database
+    networks:
+      - internalnet
+  client:
+    build: "./Client/Adeptus Mechanicus"
+    image: freakgen/car_service_client
+    container_name: client_c
+    ports:
+      - '5173:5173'
+    stdin_open: true
+    tty: true
+    restart: always
+    depends_on:
+      - 'database'
+    networks:
+      - internalnet
